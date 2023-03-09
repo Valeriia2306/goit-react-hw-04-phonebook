@@ -9,7 +9,6 @@ import ContactList from 'components/ContactsList';
 
 import { Container, Tittle, Subtittle } from './App.styled';
 
-// Use hooks
 class App extends Component {
   state = {
     contacts: [],
