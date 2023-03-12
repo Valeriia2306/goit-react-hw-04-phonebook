@@ -9,22 +9,20 @@ import ContactList from 'components/ContactsList';
 
 import { Container, Tittle, Subtittle } from './App.styled';
 
-const KEY_CONTACTS = 'name/tell';
-
 const App = () => {
-  const [contacts, setContacts] = useState(() =>
-    JSON.parse(localStorage.getItem(KEY_CONTACTS) || [])
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem('contacts')) ?? []
   );
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    localStorage.setItem(KEY_CONTACTS, JSON.stringify(contacts));
+    localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
   const onSubmitForm = contact => {
-    const isContainName = checkName(contact.name);
+    const ContainsName = checkName(contact.name);
 
-    isContainName && setContacts(state => [...state, contact]);
+    ContainsName && setContacts(state => [...state, contact]);
   };
 
   const handleFilter = e => {
@@ -48,7 +46,7 @@ const App = () => {
       <Tittle>Phonebook</Tittle>
       <ContactForm onSubmit={onSubmitForm} />
       <Subtittle>Contacts</Subtittle>
-      <Filter value={filter} toFilter={handleFilter} />
+      <Filter value={filter} onFilter={handleFilter} />
       <ContactList
         renderItems={FilteredContacts(contacts, filter)}
         deleteContact={deleteContact}
