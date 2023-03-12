@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Form as FormOfContacts, Field } from 'formik';
 
 const Label = styled.label`
   display: flex;
@@ -9,7 +10,8 @@ const Label = styled.label`
     color: blue;
   }
 `;
-const Form = styled.form`
+
+const Form = styled(FormOfContacts)`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -20,10 +22,11 @@ const Form = styled.form`
   }
 `;
 
-const Input = styled.input`
+const Input = styled(Field)`
   height: 25px;
   width: 220px;
   padding-left: 10px;
+
   border: none;
   border-radius: 5px;
   outline: yellow;

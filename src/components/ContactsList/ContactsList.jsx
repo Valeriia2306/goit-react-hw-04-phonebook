@@ -37,6 +37,7 @@ const ContactList = ({ renderItems, deleteContact }) => {
 };
 export default ContactList;
 
+
 ContactList.propTypes = {
   deleteContact: PropTypes.func.isRequired,
   renderItems: PropTypes.array.isRequired,
